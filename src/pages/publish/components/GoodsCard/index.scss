@@ -1,0 +1,26 @@
+.info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .goods-image{
+        height:32vw;
+        margin-right: 5PX;
+    }
+    .goods-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .title{
+            font-weight: bold
+        }
+        .description{
+            text-overflow: ellipsis;
+            line-clamp: 3;
+        }
+        .actions{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}

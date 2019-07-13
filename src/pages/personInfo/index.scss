@@ -1,0 +1,17 @@
+.person-info-container {
+    .avatar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        .images{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            &:first-child{
+                margin-right: 10px
+            }
+        }
+    }
+}

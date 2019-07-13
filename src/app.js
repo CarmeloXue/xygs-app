@@ -5,6 +5,10 @@ import Index from './pages/index'
 
 import {default as userStore} from './store/user'
 import {default as appStore} from './store/app'
+import {default as myPubStore} from './store/myPublish'
+import {default as myFavoriteStore} from './store/myFavorite'
+import {default as myCollectionStore} from './store/myCollection'
+import {default as myGroupStore} from './store/myGroups'
 
 
 import './app.scss'
@@ -19,16 +23,30 @@ import { wxLoginAsync } from './api/wxApi';
 
 const store = {
   userStore,
-  appStore
+  appStore,
+  myPubStore,
+  myFavoriteStore,
+  myCollectionStore,
+  myGroupStore
 }
 
 class App extends Component {
 
   config = {
     pages: [
+      'pages/index/index',
 			'pages/index/detail',
 			'pages/index/publish',
-      'pages/index/index',
+      'pages/my/my',
+      'pages/cards/index',
+      'pages/collection/index',
+      'pages/custom/index',
+      'pages/favorite/index',
+      'pages/groups/index',
+      'pages/messages/index',
+      'pages/publish/index',
+      'pages/personInfo/index',
+      'pages/edit/index',
     ],
 		tabBar: {
       color: "#626567",
@@ -54,7 +72,7 @@ class App extends Component {
         selectedIconPath: "./icons/welfare.png"
       },
       {
-        pagePath: "pages/index/index",
+        pagePath: "pages/my/my",
         text: "我的",
         iconPath: "./icons/me.png",
         selectedIconPath: "./icons/me.png"
