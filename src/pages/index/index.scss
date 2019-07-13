@@ -1,0 +1,11 @@
+.app{
+    .image{
+        height: 100%;
+    }
+    .btn{
+        position: fixed;
+        top: 160px;
+        left:50%;
+        transform: translateX(-50%)
+    }
+}
