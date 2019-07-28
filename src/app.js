@@ -38,6 +38,9 @@ class App extends Component {
       'pages/index/index',
 			'pages/index/detail',
 			'pages/index/publish',
+			'pages/index/personInfo',
+			'pages/index/createGroup',
+			'pages/index/groupDiscover',
       'pages/my/my',
       'pages/cards/index',
       'pages/collection/index',
@@ -48,6 +51,11 @@ class App extends Component {
       'pages/publish/index',
       'pages/personInfo/index',
       'pages/edit/index',
+      'pages/goods/index',
+      'pages/goods/add',
+      'pages/goods/detail',
+      'pages/merchant/user_detail',
+      'pages/merchant/index',
     ],
 		tabBar: {
       color: "#626567",
@@ -104,7 +112,29 @@ class App extends Component {
     this.login()
   }
 
-  componentDidShow () {}
+  initTopBar = async () => {
+    let topBarWarpHeight = 0;
+    let topBarHeight = 0;
+    Taro.getSystemInfo({
+      success(res) {
+        let system = res.system.split(' ')[0];
+        console.log(res);
+        if (system === 'iOS') {
+          topBarHeight = 32 + 6 * 2;
+          topBarWarpHeight = res.statusBarHeight + 32 + 6 * 2;
+        } else {
+          topBarHeight = 32 + 8 * 2;
+          topBarWarpHeight = res.statusBarHeight + 32 + 8 * 2;
+        }
+        setGlobalData('topBarWarpHeight', topBarWarpHeight);
+        setGlobalData('topBarHeight', topBarHeight);
+      }
+    })
+  }
+
+  componentDidShow () {
+    this.initTopBar()
+  }
 
   componentDidHide () {}
 

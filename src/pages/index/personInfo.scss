@@ -1,0 +1,57 @@
+.top{
+	width: 100vw;
+	height: 175PX;
+	background:url(https://axure-file.lanhuapp.com/89d73180-88e3-4195-9c3c-f5e45540f966__2d6d2ca0f811dfafa2b718f7da8321f1);
+	background-size:100vw 25vh;
+	background-repeat:no-repeat;
+	.top-content{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 94vw;
+		padding:5vw 3vw;
+		.left{
+			display: flex;
+			.text{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding: 1.5vw 0;
+				margin-left: 3vw;
+				color: white;
+				.nickname{
+					font-size: 18PX;
+				}
+				.count-info{
+					font-size: 14PX;
+				}
+			}
+		}
+		.right{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: flex-end;
+			height: 10vh;
+			padding-bottom: 5vw;
+			.add{
+				background-color: white;
+				border-radius: 20%;
+				color: #66CCFF;
+				font-size: 14PX;
+				padding: 1PX 2PX;
+			}
+		}
+	}
+	.signature{
+		color: white;
+		font-size: 14PX;
+		margin-left: 3vw;
+		text-align: left;
+	}
+}
+.top-fixed{
+	position: fixed;
+	top: 0;
+}

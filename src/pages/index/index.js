@@ -1,8 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text, Image, Swiper, SwiperItem } from '@tarojs/components'
-import { AtButton, AtAvatar, AtIcon, AtList, AtListItem } from 'taro-ui'
+import { AtButton, AtAvatar, AtList, AtListItem } from 'taro-ui'
 import { observer, inject } from '@tarojs/mobx'
-import Card from './card'
+import Card from '../../components/card'
+import GroupItem from '../../components/groupItem';
 import './index.scss'
 
 
@@ -15,7 +16,8 @@ class Index extends Component {
     this.state = {
       current: 0,
 			currentItem: "new",
-			currentPage: "square"
+			currentPage: "square",
+			topFixed: false,
     }
   }
 
@@ -73,6 +75,31 @@ class Index extends Component {
 	handleClickPublish = () => {
 		Taro.navigateTo({url:'/pages/index/publish'})
 	}
+	handleClickCreateGroup = () => {
+		Taro.navigateTo({url:'/pages/index/createGroup'})
+	}
+	handleClickDicover = () => {
+		Taro.navigateTo({url:'/pages/index/groupDiscover'})
+	}
+	getAbsTop = (obj)=>{
+		var top = obj.offsetTop;
+		while(obj.offsetParent != null){
+			obj = obj.offsetParent;
+			top += obj.offsetTop;
+		}
+		return top;
+	}
+	onPageScroll = (obj) => {
+		if(obj.scrollTop>=188){
+			this.setState({
+				topFixed: true
+			})
+		}else{
+			this.setState({
+				topFixed: false
+			})
+		}
+	}
   render() {
 
     const { userStore: { userName } } = this.props
@@ -91,6 +118,12 @@ class Index extends Component {
 			comments:34,
 			goods:129
 		}
+		const groupInfo = {
+			name:"篮球社",
+			note: "无篮球，不兄弟",
+			avatar: "https://jdc.jd.com/img/200",
+			count: "129人"
+		}
 
     return (<View>
 			<View className='header'>
@@ -105,24 +138,24 @@ class Index extends Component {
 				  autoplay>
 				  <SwiperItem className='swiperItem'>
 				    <Image
-				    style='width: 94%;height: 100%;background: #fff;'
+						className="img"
 				    src='https://axure-file.lanhuapp.com/89d73180-88e3-4195-9c3c-f5e45540f966__3ab74fd0780052b0c0dbf621c85aacc7'
 				  />
 				  </SwiperItem>
 				  <SwiperItem className='swiperItem'>
 				    <Image
-				      style='width: 94%;height: 100%;background: #fff;'
+							className="img"
 				      src='https://axure-file.lanhuapp.com/89d73180-88e3-4195-9c3c-f5e45540f966__3ab74fd0780052b0c0dbf621c85aacc7'
 				    />
 				  </SwiperItem>
 				  <SwiperItem className='swiperItem'>
 				    <Image
-				    style='width: 94%;height: 100%;background: #fff;'
-				    src='https://axure-file.lanhuapp.com/89d73180-88e3-4195-9c3c-f5e45540f966__3ab74fd0780052b0c0dbf621c85aacc7'
-				  />
+							className="img"
+							src='https://axure-file.lanhuapp.com/89d73180-88e3-4195-9c3c-f5e45540f966__3ab74fd0780052b0c0dbf621c85aacc7'
+						/>
 				  </SwiperItem>
 				</Swiper>
-				<View className='items'>
+				<View className={topFixed?'items top-fixed':'items'} id='fixedTop'>
 					<View className='tags'>
 						<Text 
 						className={this.state.currentItem=='new'?'item active':'item'} 
@@ -150,8 +183,8 @@ class Index extends Component {
 			{this.state.currentPage=='group' && <View className='groupPage'>
 				<View className='divider'></View>
 				<View className='header'>
-					<Text style='padding-top:5PX;margin-left:10PX'>我的小组</Text>
-					<AtButton style='margin-right:25PX;' type="secondary" size='small'>创建小组</AtButton>	
+					<View>我的小组</View>
+					<View className='create' onClick={this.handleClickCreateGroup.bind(this)}>创建小组</View>
 				</View>
 				<View className='groups'>
 					<View className='group'>
@@ -197,38 +230,11 @@ class Index extends Component {
 						title='发现小组'
 						arrow='right'
 						hasBorder={false}
+						onClick={this.handleClickDicover.bind(this)}
 					/>
 				</AtList>
-				<View className='group-lists'>
-					<View className='group-list-item'>
-						<View className='info'>
-							<AtAvatar image='https://jdc.jd.com/img/200'></AtAvatar>
-							<View className='text'>
-								<View>篮球社</View>
-								<View style='color:#999999;font-size:13PX;'>无篮球不兄弟</View>
-							</View>
-						</View>
-						<View className='add'>
-							<View className='add-btn'>加入</View>
-							<View className='count'>100+人</View>
-						</View>
-					</View>
-					<View className='divider'></View>
-					<View className='group-list-item'>
-						<View className='info'>
-							<AtAvatar image='https://jdc.jd.com/img/200'></AtAvatar>
-							<View className='text'>
-								<View>篮球社</View>
-								<View style='color:#999999;font-size:12PX;'>无篮球不兄弟</View>
-							</View>
-						</View>
-						<View className='add'>
-							<View className='add-btn'>加入</View>
-							<View className='count'>100+人</View>
-						</View>
-					</View>
-					<View className='divider'></View>
-				</View>
+				<GroupItem groupInfo={groupInfo} />
+				<GroupItem groupInfo={groupInfo} />
 			</View>
 			}
 		</View>)

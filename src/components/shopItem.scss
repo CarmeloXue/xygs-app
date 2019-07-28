@@ -1,0 +1,43 @@
+.shopItem{
+	display: flex;
+	flex-direction: row;
+	height: 110PX;
+	padding: 10PX;
+	.img{
+		height: 110PX;
+		border-radius: 10%
+	}
+	.shopInfo{
+		display: flex;
+		flex-direction: column;
+		padding: 7PX;
+		padding-bottom: 0;
+		.title{
+			font-size: 16PX;
+			margin-bottom: 10PX;
+		}
+		.desc{
+			font-size: 13PX;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;	
+		}
+		.icons{
+			margin-top: 5PX;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			.favorite{
+				display: flex;
+				justify-content: center;
+				align-content: center;
+			}
+		}
+	}
+}
+
+.divider{
+	border-top: 1PX solid rgba($color: #F2F2F2, $alpha: 1);
+}

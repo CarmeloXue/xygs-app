@@ -1,0 +1,102 @@
+page {
+  background: #f1f1f1;
+  font-size: 14PX;
+  color: #333333;
+  .right-arrow {
+    width: 15px;
+    height: 15px;
+    border-top: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    transform: rotateZ(45deg);
+  }
+  .auto-flex {
+    display: flex;
+    align-items: center;
+  }
+  .header {
+    height: 150px;
+    background: #ffffff;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 50px;
+    image {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      background: #eeeeee;
+      margin-left: 30px;
+    }
+  }
+  .item-wrap {
+    box-sizing: border-box;
+    padding: 0 50px;
+    background: #ffffff;
+    .item {
+      height: 100px;
+      justify-content: space-between;
+      border-top: 1px solid #f1f1f1;
+      .name {
+        margin-left: 15px;
+        color: #797979;
+      }
+      .address {
+        width: 450px;
+        margin-left: 15px;
+        color: #797979;
+      }
+      .write-icon {
+        width: 30px;
+        height: 30px;
+        background: #eeeeee;
+      }
+    }
+    .address-wrap,
+    .introduction {
+      align-items: flex-start;
+      height: auto;
+      padding: 15px 0;
+      .auto-flex {
+        align-items: flex-start;
+      }
+    }
+    .introduction-text {
+      padding: 0 0 15px 0;
+      color: #797979;
+    }
+  }
+  .mask{
+    width:100%;
+    height:100%;
+    position:fixed;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index:9999;
+    top:0;
+    left:0;
+    .range-wrap {
+      width: 600px;
+      height: 894px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-sizing: border-box;
+      padding: 0 10px;
+      .range-item {
+        height: 100px;
+        border-bottom: 1px solid #f1f1f1;
+        box-sizing: border-box;
+        padding: 0 30px;
+        justify-content: space-between;
+        .rang-name {
+          font-size: 14PX;
+          color: #333333;
+        }
+      }
+      .button-wrap {
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

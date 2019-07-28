@@ -36,8 +36,6 @@ class Card extends Component {
     const { userStore } = this.props
 
     const {currentTarget:{userInfo}} = res
-    //TODO set userinfo
-    console.log(res)
   }
 	
 	previewImage = (image) => {
@@ -45,6 +43,10 @@ class Card extends Component {
 			current: image,
 			urls: this.props.cardInfo.images
 		})
+	}
+	
+	handleClickUser = () => {
+		Taro.navigateTo({url:'/pages/index/personInfo'})
 	}
 	
   render() {
@@ -62,14 +64,13 @@ class Card extends Component {
 
     return (
 		<View className='card'>
-			<AtAvatar circle image='https://jdc.jd.com/img/200' text="用户头像" size='small'></AtAvatar>
+			<AtAvatar circle image='https://jdc.jd.com/img/200' text="用户头像" size='small' onClick={this.handleClickUser.bind(this)}></AtAvatar>
 			<View className='main'>
 				<View className='userInfo'>
 					<View className='user'>
-						<View className='nickname'>{cardInfo.nickname}</View>
+						<View className='nickname' onClick={this.handleClickUser.bind(this)}>{cardInfo.nickname}</View>
 						<View className='time'>{cardInfo.time}</View>
 					</View>
-					<View className='add'>+关注</View>
 				</View>
 				<View className='content'>{cardInfo.content}</View>
 				<View className='img'>

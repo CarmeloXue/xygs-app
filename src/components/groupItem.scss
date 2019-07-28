@@ -1,0 +1,53 @@
+.group-list-item{
+		margin:5PX 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		.info{
+			display: flex;
+			flex-direction: row;
+			margin-left: 20PX;
+			.text{
+				padding-top: 7PX;
+				margin-left: 10PX;
+				font-size: 15PX;
+				text-align: left;
+				.note{
+					color:#999999;
+					font-size:12PX;
+				}
+			}
+		}
+		.add{
+			margin-right: 20PX;
+			font-size: 15PX;
+			padding-top: 7PX;
+			.add-btn{
+				background-color: #00CCFF;
+				border-radius: 20%;
+				color: #fff;
+				padding: 0 5PX;
+			}
+			.count{
+				font-size: 11PX;
+				color: #999999;
+			}
+		}
+	}
+	
+.add-detail{
+	margin-top: 10PX;
+}
+
+.bottom-info{
+	background-color: #F2F9FF;
+	border-radius: 5%;
+	padding: 5PX;
+	margin: 3PX 10PX;
+	text-align: left;
+	font-size: 12PX;
+}
+
+.divider{
+	border: 1PX solid #F2F2F2;
+}
