@@ -1,0 +1,15 @@
+.person-info{
+    margin: 3PX 2PX;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .name-image{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .name{
+            margin-left: 2PX;
+            
+        }
+    }
+}

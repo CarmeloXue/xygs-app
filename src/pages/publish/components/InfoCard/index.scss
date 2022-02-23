@@ -1,0 +1,21 @@
+.info-container {
+    .image-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .info-image{
+            margin:5PX 0;
+            display: inline-block;
+            width:25vw;
+            height:25vw;
+            
+        }   
+    }
+
+    .actions-bar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
